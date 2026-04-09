@@ -1,5 +1,4 @@
 /**************** extend css start ****************/
-@import url("https://fonts.googleapis.com/css?family=Aclonica|Poppins:300,400,500,600&display=swap");
 /* line 2, ../../01 cl html template/03_jun 2019/186_Gaiming_html/sass/_extends.scss */
 .btn_1, .live_stareams .live_stareams_slide .live_stareams_slide_img:after, .Latest_War .Latest_War_text:after, .gallery_part .single_gallery_item .single_gallery_item_iner:after, .footer_part .single_footer_part .mail_part .email_icon {
   background-image: -webkit-gradient(linear, right top, left top, from(#ff0000), color-stop(51%, #c6019a), to(#ff0000));
@@ -35,7 +34,7 @@
 /**************** common css start ****************/
 /* line 3, ../../01 cl html template/03_jun 2019/186_Gaiming_html/sass/_common.scss */
 body {
-  font-family: "Aclonica", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   padding: 0;
   margin: 0;
   font-size: 14px;
@@ -204,12 +203,12 @@ a:hover {
 /* line 87, ../../01 cl html template/03_jun 2019/186_Gaiming_html/sass/_common.scss */
 h1, h2, h3, h4, h5, h6 {
   color: #fff;
-  font-family: "Aclonica", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* line 91, ../../01 cl html template/03_jun 2019/186_Gaiming_html/sass/_common.scss */
 p {
-  font-family: "Poppins", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 29px;
   font-size: 15px;
   margin-bottom: 0px;
@@ -342,7 +341,7 @@ a:focus, .button:focus, button:focus, .btn:focus {
 .section_tittle p {
   text-transform: capitalize;
   line-height: 30px;
-  font-family: "Poppins", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 @media (max-width: 576px) {
@@ -545,7 +544,7 @@ ul {
   padding: 18.5px 40px;
   border-radius: 0;
   font-size: 15px;
-  font-family: "Aclonica", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
   color: #fff;
   -o-transition: all .4s ease-in-out;
@@ -593,7 +592,7 @@ ul {
   border-radius: 0;
   background-color: #fff;
   font-size: 15px;
-  font-family: "Aclonica", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
   color: #1a1a1a;
   -o-transition: all .4s ease-in-out;
@@ -2208,7 +2207,7 @@ ul {
   color: #fff;
   font-size: 15px;
   padding: 43px 23px;
-  font-family: "Poppins", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   text-transform: capitalize;
   line-height: 12px;
   font-weight: 400;
@@ -2660,7 +2659,7 @@ ul {
 .banner_part .banner_text p {
   font-size: 15px;
   line-height: 1.8;
-  font-family: "Poppins", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: #fff;
   margin-bottom: 45px;
   padding-right: 140px;
@@ -2979,7 +2978,7 @@ ul {
 /* line 66, ../../01 cl html template/03_jun 2019/186_Gaiming_html/sass/_Latest_War.scss */
 .Latest_War .single_war_text p {
   font-size: 16px;
-  font-family: "Aclonica", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* line 71, ../../01 cl html template/03_jun 2019/186_Gaiming_html/sass/_Latest_War.scss */
@@ -3479,7 +3478,7 @@ ul {
 .feature_part .feature_part_text .feature_part_text_iner h4 {
   font-size: 40px;
   font-weight: 700;
-  font-family: "Aclonica", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* line 106, ../../01 cl html template/03_jun 2019/186_Gaiming_html/sass/_feature_part.scss */
@@ -3969,7 +3968,7 @@ ul {
   font-size: 18px;
   text-transform: capitalize;
   margin-bottom: 55px;
-  font-family: "Poppins", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
 }
 
@@ -4250,7 +4249,7 @@ ul {
   color: #bebebe;
   margin-bottom: 10px;
   display: inline-block;
-  font-family: "Poppins", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* line 68, ../../01 cl html template/03_jun 2019/186_Gaiming_html/sass/_footer.scss */
@@ -6331,7 +6330,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #bebebe;
   margin-bottom: 10px;
   display: inline-block;
-  font-family: "Poppins", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* line 68, ../../01 cl html template/03_jun 2019/186_Gaiming_html/sass/_footer.scss */
@@ -6505,3 +6504,4 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+

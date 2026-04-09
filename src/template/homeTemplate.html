@@ -1,519 +1,689 @@
+﻿<div class="cms-root" id="top">
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #e9ecef;
+            font-family: Arial, Helvetica, sans-serif;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
-    <div class="body_bg" id="top">
-        <!--::header part start::-->
-        <header class="main_menu single_page_menu">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-12">
-                        <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="#top"> <img src="img/ZM-Logo.png" alt="Zona Merah Project logo" style="width: 154px; height: 38px; object-fit: contain;"> </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="menu_icon"><i class="fas fa-bars"></i></span>
-                            </button>
+        body::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
+        }
 
-                            <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#top">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#features">Features</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#gallery">Gallery</a>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#events" id="navbarDropdown"
-                                            role="button" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Server Info
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="#events"> Events</a>
-                                            <a class="dropdown-item" href="#community">Community</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#community" id="navbarDropdown1"
-                                            role="button" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Join
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                            <a class="dropdown-item" href="#community">How To Join</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <a href="https://discord.gg/4CSsdS44Gq" target="_blank" rel="noopener noreferrer" class="btn_1 d-none d-sm-block">Join Discord</a>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- Header part end-->
+        .cms-root h1,
+        .cms-root h2,
+        .cms-root h3,
+        .cms-root h4,
+        .cms-root h5,
+        .cms-root h6,
+        .cms-root p,
+        .cms-root a,
+        .cms-root button,
+        .cms-root li,
+        .cms-root span {
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-        <!-- banner part start-->
-        <section class="banner_part">
-            <div class="container">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-lg-6 col-md-8">
-                        <div class="banner_text">
-                            <div class="banner_text_iner">
-                                <h1>Zona Merah
-                                    Project Zomboid Server</h1>
-                                <p>Hardcore survival, active admins, balanced PvE and PvP zones,
-                                    and community-driven events every week.
-                                    Build, loot, survive, and dominate together.
+        .cms-root {
+            min-height: 100vh;
+            padding: 20px 0;
+            background: radial-gradient(circle at top right, rgba(220, 53, 69, 0.22), transparent 45%),
+                radial-gradient(circle at bottom left, rgba(0, 123, 255, 0.18), transparent 40%),
+                #0d1117;
+        }
 
-                                  </p>
-                                <a href="https://discord.gg/4CSsdS44Gq" target="_blank" rel="noopener noreferrer" class="btn_1">Join Discord</a>
-                            </div>
+        .cms-card {
+            background-color: #161b22;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.3);
+        }
+
+        .cms-card .card-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: transparent;
+        }
+
+        .cms-muted {
+            color: #9da7b3;
+        }
+
+        .cms-sidebar {
+            border-radius: 14px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+                #161b22;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cms-sidebar .nav {
+            gap: 0.2rem;
+        }
+
+        .cms-sidebar .nav-link {
+            color: #cfd6df;
+            border-radius: 10px;
+            margin-bottom: 0.35rem;
+            font-weight: 600;
+            padding: 0.62rem 0.82rem;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.22s ease, background-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+            opacity: 0;
+            animation: cmsSidebarLinkIn 0.4s ease-out forwards;
+        }
+
+        .cms-sidebar .nav-link::before {
+            content: "";
+            position: absolute;
+            left: 0.5rem;
+            top: 0.45rem;
+            bottom: 0.45rem;
+            width: 3px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, #ff8a8a, #dc3545);
+            transform: scaleY(0);
+            transform-origin: center;
+            transition: transform 0.22s ease;
+        }
+
+        .cms-sidebar .nav-link::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(220, 53, 69, 0.25), rgba(220, 53, 69, 0));
+            opacity: 0;
+            transform: translateX(-12px);
+            transition: opacity 0.22s ease, transform 0.22s ease;
+            pointer-events: none;
+        }
+
+        .cms-sidebar .nav-link:nth-child(1) {
+            animation-delay: 0.02s;
+        }
+
+        .cms-sidebar .nav-link:nth-child(2) {
+            animation-delay: 0.05s;
+        }
+
+        .cms-sidebar .nav-link:nth-child(3) {
+            animation-delay: 0.08s;
+        }
+
+        .cms-sidebar .nav-link:nth-child(4) {
+            animation-delay: 0.11s;
+        }
+
+        .cms-sidebar .nav-link:nth-child(5) {
+            animation-delay: 0.14s;
+        }
+
+        .cms-sidebar .nav-link:nth-child(6) {
+            animation-delay: 0.17s;
+        }
+
+        .cms-sidebar .nav-link:nth-child(7) {
+            animation-delay: 0.2s;
+        }
+
+        .cms-sidebar .nav-link:nth-child(8) {
+            animation-delay: 0.23s;
+        }
+
+        .cms-sidebar .nav-link:nth-child(9) {
+            animation-delay: 0.26s;
+        }
+
+        .cms-sidebar .nav-link:nth-child(10) {
+            animation-delay: 0.29s;
+        }
+
+        .cms-sidebar .nav-link:nth-child(11) {
+            animation-delay: 0.32s;
+        }
+
+        .cms-sidebar .nav-link:nth-child(12) {
+            animation-delay: 0.35s;
+        }
+
+        .cms-sidebar .nav-link:hover,
+        .cms-sidebar .nav-link:focus {
+            background-color: rgba(220, 53, 69, 0.24);
+            color: #ffffff;
+            transform: translateX(4px);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+
+        .cms-sidebar .nav-link:hover::before,
+        .cms-sidebar .nav-link:focus::before {
+            transform: scaleY(1);
+        }
+
+        .cms-sidebar .nav-link:hover::after,
+        .cms-sidebar .nav-link:focus::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .cms-sidebar .nav-link.is-active {
+            background-color: rgba(220, 53, 69, 0.32);
+            color: #ffffff;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+        }
+
+        .cms-sidebar .nav-link.is-active::before {
+            transform: scaleY(1);
+        }
+
+        .cms-sidebar .nav-link.is-active::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @keyframes cmsSidebarLinkIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .cms-section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        .cms-hero-title {
+            font-size: clamp(1.8rem, 3vw, 2.7rem);
+            font-weight: 800;
+            margin-bottom: 0.9rem;
+        }
+
+        .copy-button {
+            border-color: rgba(255, 255, 255, 0.35);
+            color: #f8f9fa;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-align: left;
+        }
+
+        .copy-button:hover {
+            border-color: rgba(255, 255, 255, 0.7);
+            color: #ffffff;
+            background-color: rgba(220, 53, 69, 0.2);
+        }
+
+        .gallery-thumb {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .stats-number {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .wipe-countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .wipe-countdown-unit {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            text-align: center;
+            padding: 14px 10px;
+        }
+
+        .wipe-countdown-value {
+            font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .wipe-countdown-label {
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            font-size: 0.72rem;
+            color: #9fb0bf;
+            font-weight: 700;
+        }
+
+        .list-group-item.cms-list-item {
+            background-color: transparent;
+            border-color: rgba(255, 255, 255, 0.08);
+            color: #dce2ea;
+        }
+
+        @media (min-width: 992px) {
+            .cms-sidebar-wrap {
+                position: sticky;
+                top: 16px;
+                max-height: calc(100vh - 32px);
+                overflow-y: auto;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+
+            .cms-sidebar-wrap::-webkit-scrollbar {
+                width: 0;
+                height: 0;
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cms-sidebar .nav-link {
+                animation: none;
+                opacity: 1;
+                transition: none;
+            }
+
+            .cms-sidebar .nav-link::before,
+            .cms-sidebar .nav-link::after {
+                transition: none;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .cms-root {
+                padding: 15px 0 24px;
+            }
+
+            .gallery-thumb {
+                height: 160px;
+            }
+
+            .wipe-countdown-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+    </style>
+
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-lg-3 col-xl-2 mb-4 mb-lg-0">
+                <div class="cms-sidebar-wrap">
+                    <div class="card cms-card cms-sidebar">
+                        <div class="card-body px-3 px-md-4 py-4">
+                            <a href="#top" class="d-block text-center mb-4">
+                                <img src="/img/ZM-Logo.png" alt="Zona Merah Project logo" style="width: 170px; height: 42px; object-fit: contain;">
+                            </a>
+                            <p class="text-uppercase small cms-muted mb-2">Navigation</p>
+                            <nav class="nav flex-column">
+                                <a class="nav-link is-active" href="#overview">Overview</a>
+                                <a class="nav-link" href="/flea-market">ZM Flea Market</a>
+                                <a class="nav-link" href="/topup-raid-points">Top Up Raid Points</a>
+                                <a class="nav-link" href="/features">Features</a>
+                                <a class="nav-link" href="/in-game-rules">In Game Rules</a>
+                                <a class="nav-link" href="/login" data-nav-guest-only>Login</a>
+                                <a class="nav-link" href="/register" data-nav-guest-only>Register</a>
+                                <a class="nav-link" href="/profile">Profile</a>
+                                <a class="nav-link" href="#access">Server Access</a>
+                                <a class="nav-link" href="#community">Community</a>
+                                <a class="nav-link" href="#events">Events</a>
+                                <a class="nav-link" href="#gallery">Gallery</a>
+                                <a class="nav-link" href="#countdown">Next Wipe</a>
+                                <a class="nav-link" href="#support">Support</a>
+                                <a class="nav-link" href="#contact">Contact</a>
+                            </nav>
+                        </div>
+                        <div class="card-body pt-0 px-3 px-md-4 pb-4">
+                            <a href="https://discord.gg/4CSsdS44Gq" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-block">Join Discord</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- banner part start-->
+            </aside>
 
-        <!-- about_us part start-->
-        <section class="about_us section_padding" id="features">
-            <div class="container">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-md-5 col-lg-6 col-xl-6">
-                        <div class="learning_img">
-                            <img src="img/about_img.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-7 col-lg-6 col-xl-5">
-                        <div class="about_us_text">
-                            <h2>Survive Together On Zona Merah</h2>
-                            <p>Zona Merah Project is a curated Project Zomboid experience with
-                                fair rules, custom balancing, and a focus on community growth.
-                                New and veteran survivors are welcome.</p>
-                            <div style="margin-top: 20px;">
-                                <button type="button" data-copy-text="74.63.203.203" data-default-label="Copy"
-                                    data-copied-label="Copied!" data-failed-label="Try Again"
-                                    style="width: 100%; border: 1px solid #fff; background: rgba(0, 0, 0, 0.35); color: #fff; padding: 10px 12px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
-                                    <span>IP: 74.63.203.203</span>
-                                    <span data-copy-label>Copy</span>
-                                </button>
-                                <button type="button" data-copy-text="16261" data-default-label="Copy"
-                                    data-copied-label="Copied!" data-failed-label="Try Again"
-                                    style="width: 100%; border: 1px solid #fff; background: rgba(0, 0, 0, 0.35); color: #fff; padding: 10px 12px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
-                                    <span>Port: 16261</span>
-                                    <span data-copy-label>Copy</span>
-                                </button>
-                            </div>
-                            <a href="https://discord.gg/4CSsdS44Gq" target="_blank" rel="noopener noreferrer" class="btn_1">Join Discord</a>
-                            <a href="#events" class="btn_1">View Events</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- about_us part end-->
-
-        <!--::about_us part start::-->
-        <section class="live_stareams padding_bottom" id="community">
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-md-2 offset-lg-2 offset-sm-1">
-                        <div class="live_stareams_text">
-                            <h2>how to <br> join</h2>
-                            <a href="https://discord.gg/4CSsdS44Gq" target="_blank" rel="noopener noreferrer" class="btn_1">join now</a>
-                            <div style="margin-top: 20px;">
-                                <button type="button" data-copy-text="74.63.203.203" data-default-label="Copy"
-                                    data-copied-label="Copied!" data-failed-label="Try Again"
-                                    style="width: 100%; border: 1px solid #fff; background: rgba(0, 0, 0, 0.35); color: #fff; padding: 10px 12px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
-                                    <span>IP: 74.63.203.203</span>
-                                    <span data-copy-label>Copy</span>
-                                </button>
-                                <button type="button" data-copy-text="16261" data-default-label="Copy"
-                                    data-copied-label="Copied!" data-failed-label="Try Again"
-                                    style="width: 100%; border: 1px solid #fff; background: rgba(0, 0, 0, 0.35); color: #fff; padding: 10px 12px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
-                                    <span>Port: 16261</span>
-                                    <span data-copy-label>Copy</span>
-                                </button>
-                            </div>
-                            <ul class="list-unstyled" style="margin-top: 10px; color: #fff;">
-                                <li>Hosting region: SG Singapore</li>
-                                <li>Max Slot: 40/40</li>
-                                <li>Server Version: Build (unstable) 42.15+</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-7 offset-sm-1">
-                        <div class="live_stareams_slide owl-carousel">
-                            <div class="live_stareams_slide_img">
-                                <img src="img/live_streams_1.png" alt="">
-                                <div class="extends_video">
-                                    <a id="play-video_1" class="video-play-button popup-youtube"
-                                        href="https://www.youtube.com/watch?v=pBFQdxA-apI">
-                                        <span class="fas fa-play"></span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="live_stareams_slide_img">
-                                <img src="img/live_streams_2.png" alt="">
-                                <div class="extends_video">
-                                    <a id="play-video_1" class="video-play-button popup-youtube"
-                                        href="https://www.youtube.com/watch?v=pBFQdxA-apI">
-                                        <span class="fas fa-play"></span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="live_stareams_slide_img">
-                                <img src="img/live_streams_1.png" alt="">
-                                <div class="extends_video">
-                                    <a id="play-video_1" class="video-play-button popup-youtube"
-                                        href="https://www.youtube.com/watch?v=pBFQdxA-apI">
-                                        <span class="fas fa-play"></span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="live_stareams_slide_img">
-                                <img src="img/live_streams_2.png" alt="">
-                                <div class="extends_video">
-                                    <a id="play-video_1" class="video-play-button popup-youtube"
-                                        href="https://www.youtube.com/watch?v=pBFQdxA-apI">
-                                        <span class="fas fa-play"></span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="live_stareams_slide_img">
-                                <img src="img/live_streams_1.png" alt="">
-                                <div class="extends_video">
-                                    <a id="play-video_1" class="video-play-button popup-youtube"
-                                        href="https://www.youtube.com/watch?v=pBFQdxA-apI">
-                                        <span class="fas fa-play"></span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="live_stareams_slide_img">
-                                <img src="img/live_streams_2.png" alt="">
-                                <div class="extends_video">
-                                    <a id="play-video_1" class="video-play-button popup-youtube"
-                                        href="https://www.youtube.com/watch?v=pBFQdxA-apI">
-                                        <span class="fas fa-play"></span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="live_stareams_slide_img">
-                                <img src="img/live_streams_1.png" alt="">
-                                <div class="extends_video">
-                                    <a id="play-video_1" class="video-play-button popup-youtube"
-                                        href="https://www.youtube.com/watch?v=pBFQdxA-apI">
-                                        <span class="fas fa-play"></span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="live_stareams_slide_img">
-                                <img src="img/live_streams_2.png" alt="">
-                                <div class="extends_video">
-                                    <a id="play-video_1" class="video-play-button popup-youtube"
-                                        href="https://www.youtube.com/watch?v=pBFQdxA-apI">
-                                        <span class="fas fa-play"></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--::about_us part end::-->
-
-        <!-- use sasu part end-->
-        <section class="Latest_War" id="events">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="section_tittle text-center">
-                            <h2>Upcoming Community Events</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-lg-12">
-                        <div class="Latest_War_text">
-                            <div class="row justify-content-center align-items-center h-100">
-                                <div class="col-lg-6">
-                                    <div class="single_war_text text-center">
-                                        <img src="img/favicon.png" alt="">
-                                        <h4>Zona Merah Survivor Clash</h4>
-                                        <p>Every Saturday</p>
-                                        <a href="#community">view event</a>
-                                        <div class="war_text_item d-flex justify-content-around align-items-center">
-                                            <img src="img/war_logo_1.png" alt="">
-                                            <h2>PVE<span>&amp;</span>PVP</h2>
-                                            <img src="img/war_logo_2.png" alt="">
-                                        </div>
-
+            <main class="col-lg-9 col-xl-10">
+                <section id="overview" class="mb-4">
+                    <div class="card cms-card">
+                        <div class="card-body p-4 p-xl-5">
+                            <div class="row align-items-center">
+                                <div class="col-xl-8 mb-4 mb-xl-0">
+                                    <span class="badge badge-danger mb-3">Project Zomboid Community Server</span>
+                                    <h1 class="cms-hero-title">Welcome To Zona Merah</h1>
+                                    <p class="cms-muted mb-4">
+                                        Hardcore survival, active admins, balanced PvE and PvP zones, and community-driven events.
+                                        Build, loot, survive, and dominate with the Zona Merah crew. Experience Project Zomboid like never before.
+                                    </p>
+                                    <div class="d-flex flex-wrap">
+                                        <a href="https://discord.gg/4CSsdS44Gq" target="_blank" rel="noopener noreferrer" class="btn btn-danger mr-2 mb-2">Join Discord</a>
+                                        <a href="/flea-market" class="btn btn-outline-light mr-2 mb-2">ZM Flea Market</a>
+                                        <a href="/features" class="btn btn-outline-light mr-2 mb-2">Features</a>
+                                        <a href="/login" class="btn btn-outline-light mr-2 mb-2">Login</a>
+                                        <a href="#events" class="btn btn-outline-light mb-2">View Events</a>
                                     </div>
                                 </div>
-                            </div>
-                            <a href="https://discord.gg/4CSsdS44Gq" target="_blank" rel="noopener noreferrer" class="btn_2">Join Discord</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="latest_war_list">
-                            <div class="single_war_text">
-                                <div class="war_text_item d-flex justify-content-around align-items-center">
-                                    <img src="img/war_logo_1.png" alt="">
-                                    <h2>PVE<span>&amp;</span>PVP</h2>
-                                    <img src="img/war_logo_2.png" alt="">
-                                    <div class="war_date">
-                                        <a href="#events">Every Saturday</a>
-                                        <p>Zona Merah Survivor Clash</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single_war_text">
-                                <div class="war_text_item d-flex justify-content-around align-items-center">
-                                    <img src="img/war_logo_1.png" alt="">
-                                    <h2>PVE<span>&amp;</span>PVP</h2>
-                                    <img src="img/war_logo_2.png" alt="">
-                                    <div class="war_date">
-                                        <a href="#events">Every Saturday</a>
-                                        <p>Zona Merah Survivor Clash</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single_war_text">
-                                <div class="war_text_item d-flex justify-content-around align-items-center">
-                                    <img src="img/war_logo_1.png" alt="">
-                                    <h2>PVE<span>&amp;</span>PVP</h2>
-                                    <img src="img/war_logo_2.png" alt="">
-                                    <div class="war_date">
-                                        <a href="#events">Every Saturday</a>
-                                        <p>Zona Merah Survivor Clash</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single_war_text">
-                                <div class="war_text_item d-flex justify-content-around align-items-center">
-                                    <img src="img/war_logo_1.png" alt="">
-                                    <h2>PVE<span>&amp;</span>PVP</h2>
-                                    <img src="img/war_logo_2.png" alt="">
-                                    <div class="war_date">
-                                        <a href="#events">Every Saturday</a>
-                                        <p>Zona Merah Survivor Clash</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="Latest_War_text Latest_War_bg_1">
-                            <div class="row justify-content-center align-items-center h-100">
-                                <div class="col-lg-6">
-                                    <div class="single_war_text text-center">
-                                        <img src="img/favicon.png" alt="">
-                                        <h4>Wipe Day Rush</h4>
-                                        <p>Every First Friday</p>
-                                        <a href="#community">view event</a>
-                                        <div class="war_text_item d-flex justify-content-around align-items-center">
-                                            <img src="img/war_logo_1.png" alt="">
-                                            <h2>Loot<span>&amp;</span>Craft</h2>
-                                            <img src="img/war_logo_2.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="https://discord.gg/4CSsdS44Gq" target="_blank" rel="noopener noreferrer" class="btn_2">Join Discord</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- use sasu part end-->
-
-        <!-- gallery_part part start-->
-        <section class="gallery_part section_padding" id="gallery">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-5">
-                        <div class="section_tittle text-center">
-                            <h2>Community Gallery</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="gallery_part_item">
-                            <div class="grid">
-                                <div class="grid-sizer"></div>
-                                <a href="img/gallery/gallery_item_1.png"
-                                    class="grid-item bg_img img-gal grid-item--height-1"
-                                    style="background-image: url('img/gallery/gallery_item_1.png')">
-                                    <div class="single_gallery_item">
-                                        <div class="single_gallery_item_iner">
-                                            <div class="gallery_item_text">
-                                                <i class="ti-zoom-in"></i>
+                                <div class="col-xl-4">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body">
+                                            <h2 class="cms-section-title mb-3">Server Snapshot</h2>
+                                            <div class="mb-3">
+                                                <div class="stats-number">40 / 40</div>
+                                                <div class="cms-muted">Max Slots</div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="stats-number">42+ (unstable)</div>
+                                                <div class="cms-muted">Build Version</div>
+                                            </div>
+                                            <div>
+                                                <div class="stats-number">SEA</div>
+                                                <div class="cms-muted">Hosting Region</div>
                                             </div>
                                         </div>
                                     </div>
-                                </a>
-                                <a href="img/gallery/gallery_item_2.png" class="grid-item bg_img img-gal"
-                                    style="background-image: url('img/gallery/gallery_item_2.png')">
-                                    <div class="single_gallery_item">
-                                        <div class="single_gallery_item_iner">
-                                            <div class="gallery_item_text">
-                                                <i class="ti-zoom-in"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="img/gallery/gallery_item_3.png" class="grid-item bg_img img-gal"
-                                    style="background-image: url('img/gallery/gallery_item_3.png')">
-                                    <div class="single_gallery_item">
-                                        <div class="single_gallery_item_iner">
-                                            <div class="gallery_item_text">
-                                                <i class="ti-zoom-in"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="img/gallery/gallery_item_5.png"
-                                    class="grid-item bg_img img-gal grid-item--height-2"
-                                    style="background-image: url('img/gallery/gallery_item_5.png')">
-                                    <div class="single_gallery_item">
-                                        <div class="single_gallery_item_iner">
-                                            <div class="gallery_item_text">
-                                                <i class="ti-zoom-in"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="img/gallery/gallery_item_7.png"
-                                    class="grid-item bg_img img-gal grid-item--height-2"
-                                    style="background-image: url('img/gallery/gallery_item_7.png')">
-                                    <div class="single_gallery_item">
-                                        <div class="single_gallery_item_iner">
-                                            <div class="gallery_item_text">
-                                                <i class="ti-zoom-in"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="img/gallery/gallery_item_6.png"
-                                    class="grid-item bg_img img-gal grid-item--width-1"
-                                    style="background-image: url('img/gallery/gallery_item_6.png')">
-                                    <div class="single_gallery_item">
-                                        <div class="single_gallery_item_iner">
-                                            <div class="gallery_item_text">
-                                                <i class="ti-zoom-in"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="img/gallery/gallery_item_4.png"
-                                    class="grid-item bg_img img-gal sm_weight  grid-item--height-1"
-                                    style="background-image: url('img/gallery/gallery_item_4.png')">
-                                    <div class="single_gallery_item">
-                                        <div class="single_gallery_item_iner">
-                                            <div class="gallery_item_text">
-                                                <i class="ti-zoom-in"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- gallery_part part end-->
-
-        <!-- use sasu part end-->
-        <section class="upcomming_war" id="countdown">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="section_tittle text-center">
-                            <h2>Next Server Wipe</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="upcomming_war_iner">
-                    <div class="row justify-content-center align-items-center h-100">
-                        <div class="col-10 col-sm-5 col-lg-3">
-                            <div class="upcomming_war_counter text-center">
-                                <h2>Fresh Spawn Rush</h2>
-                                <div id="timer" class="d-flex justify-content-between">
-                                    <div id="days"></div>
-                                    <div id="hours"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <!-- use sasu part end-->
+                </section>
 
-        <!-- pricing part start-->
-        <section class="pricing_part padding_top" id="support">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="section_tittle text-center">
-                            <h2>Supporter Tiers</h2>
+                <section id="access" class="mb-4">
+                    <div class="row">
+                        <div class="col-xl-7 mb-4 mb-xl-0">
+                            <div class="card cms-card h-100">
+                                <div class="card-header py-3 px-4">
+                                    <h2 class="cms-section-title mb-0">Server Access Panel</h2>
+                                </div>
+                                <div class="card-body px-4 pb-4">
+                                    <p class="cms-muted mb-4">Use the copy buttons below to connect directly from Project Zomboid multiplayer.</p>
+                                    <button type="button" class="btn btn-outline-light btn-block d-flex justify-content-between align-items-center copy-button"
+                                        data-copy-text="74.63.203.203" data-default-label="Copy" data-copied-label="Copied!" data-failed-label="Try Again">
+                                        <span>IP: 74.63.203.203</span>
+                                        <span data-copy-label>Copy</span>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-light btn-block d-flex justify-content-between align-items-center copy-button"
+                                        data-copy-text="16261" data-default-label="Copy" data-copied-label="Copied!" data-failed-label="Try Again">
+                                        <span>Port: 16261</span>
+                                        <span data-copy-label>Copy</span>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-light btn-block d-flex justify-content-between align-items-center copy-button"
+                                        data-copy-text="74.63.203.203:16261" data-default-label="Copy" data-copied-label="Copied!" data-failed-label="Try Again">
+                                        <span>Full Address: 74.63.203.203:16261</span>
+                                        <span data-copy-label>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5">
+                            <div class="card cms-card h-100">
+                                <div class="card-header py-3 px-4">
+                                    <h2 class="cms-section-title mb-0">Rules Quick View</h2>
+                                </div>
+                                <div class="card-body px-4 pb-4">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item cms-list-item px-0">PvE is protected: no killing outside Extraction/KOS zones.</li>
+                                        <li class="list-group-item cms-list-item px-0">No griefing in PvE, Community Center, or other players' safehouses.</li>
+                                        <li class="list-group-item cms-list-item px-0">Do not claim non-residential buildings or move airdrop crates.</li>
+                                        <li class="list-group-item cms-list-item px-0">Safehouse limits: max 8 vehicles and 10 animals.</li>
+                                        <li class="list-group-item cms-list-item px-0">Floor loot can be auto-deleted. Store items in containers.</li>
+                                    </ul>
+                                    <a href="/in-game-rules" class="btn btn-outline-light btn-block mt-3">Read Full In Game Rules</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="single_pricing_part">
-                            <p>Scout Tier</p>
-                            <h3>$5.00</h3>
-                            <ul>
-                                <li>Supporter role</li>
-                                <li>Priority queue</li>
-                                <li>Server shoutout</li>
-                            </ul>
-                            <a href="#community" class="btn_2">Choose Tier</a>
+                </section>
+
+                <section id="community" class="mb-4">
+                    <div class="card cms-card">
+                        <div class="card-header py-3 px-4 d-flex justify-content-between align-items-center">
+                            <h2 class="cms-section-title mb-0">Community Onboarding</h2>
+                            <a href="https://discord.gg/4CSsdS44Gq" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-danger">Join Now</a>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="row">
+                                <div class="col-md-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body">
+                                            <p class="small text-uppercase cms-muted mb-2">Step 1</p>
+                                            <h3 class="h5">Join Discord</h3>
+                                            <p class="cms-muted mb-0">Accept the rules and verify your account before requesting whitelist access.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body">
+                                            <p class="small text-uppercase cms-muted mb-2">Step 2</p>
+                                            <h3 class="h5">Read Server Info</h3>
+                                            <p class="cms-muted mb-0">Check channels for mods list, restart schedule, and PvE/PvP zone updates.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body">
+                                            <p class="small text-uppercase cms-muted mb-2">Step 3</p>
+                                            <h3 class="h5">Connect</h3>
+                                            <p class="cms-muted mb-0">Use the IP and port from the server access card to spawn into Zona Merah.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body">
+                                            <p class="small text-uppercase cms-muted mb-2">Step 4</p>
+                                            <h3 class="h5">Play Events</h3>
+                                            <p class="cms-muted mb-0">Take part in weekly clashes, wipe-day races, and community base raids.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="single_pricing_part">
-                            <p>Survivor Tier</p>
-                            <h3>$10.00</h3>
-                            <ul>
-                                <li>All Scout perks</li>
-                                <li>Reserved slot boost</li>
-                                <li>Monthly cosmetic vote</li>
-                            </ul>
-                            <a href="#community" class="btn_2">Choose Tier</a>
+                </section>
+
+                <section id="events" class="mb-4">
+                    <div class="card cms-card">
+                        <div class="card-header py-3 px-4 d-flex justify-content-between align-items-center">
+                            <h2 class="cms-section-title mb-0">Unique Features</h2>
+                            <a href="/features" class="btn btn-sm btn-outline-light">Open Full Features Page</a>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="row">
+                                <div class="col-md-6 col-xl-4 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <img src="/img/features/feature-extraction.jpg" class="card-img-top" alt="Zona Merah Extraction Zone" style="height: 200px; object-fit: cover;">
+                                        <div class="card-body">
+                                            <h3 class="h5">Zona Merah Extraction Zone</h3>
+                                            <p class="cms-muted mb-1">Every 20 minutes cycle</p>
+                                            <p class="cms-muted mb-3">Experience unique extraction challenges and rewards in a with an extraction style game, King of the hill included.</p>
+                                            <a href="#community" class="btn btn-sm btn-outline-light">View Event</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-4 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <img src="/img/features/feature-npc-lore.jpg" class="card-img-top" alt="Unique NPC Lore & Stories" style="height: 200px; object-fit: cover;">
+                                        <div class="card-body">
+                                            <h3 class="h5">Unique NPC Lore & Stories</h3>
+                                            <p class="cms-muted mb-1">Every NPC in-game has their own special feature and lore</p>
+                                            <p class="cms-muted mb-3">Lore Event based on NPC's unique stories and interactions. Also NPC can be interacted with in various ways to uncover hidden secrets.</p>
+                                            <a href="#countdown" class="btn btn-sm btn-outline-light">Track Wipe</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-4 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <img src="/img/features/feature-admin-raid.jpg" class="card-img-top" alt="Admin Raid Night event" style="height: 200px; object-fit: cover;">
+                                        <div class="card-body">
+                                            <h3 class="h5">Admin Raid Night</h3>
+                                            <p class="cms-muted mb-1">Every Wednesday</p>
+                                            <p class="cms-muted mb-3">Rotating mission cards, boss zombies, and tactical extraction objectives.</p>
+                                            <a href="https://discord.gg/4CSsdS44Gq" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light">Get Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="single_pricing_part">
-                            <p>Warden Tier</p>
-                            <h3>$20.00</h3>
-                            <ul>
-                                <li>All Survivor perks</li>
-                                <li>Event priority access</li>
-                                <li>VIP name color</li>
-                            </ul>
-                            <a href="#community" class="btn_2">Choose Tier</a>
+                </section>
+
+                <section id="gallery" class="mb-4">
+                    <div class="card cms-card">
+                        <div class="card-header py-3 px-4">
+                            <h2 class="cms-section-title mb-0">Community Gallery</h2>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="row">
+                                <div class="col-sm-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body p-2">
+                                            <img src="/img/gallery/Cuplikan_layar_2026-01-06_202928.png" alt="Zona Merah moment 1" class="gallery-thumb">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body p-2">
+                                            <img src="/img/gallery/Cuplikan_layar_2026-02-14_221907.png" alt="Zona Merah moment 2" class="gallery-thumb">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body p-2">
+                                            <img src="/img/gallery/Cuplikan_layar_2026-02-14_230825.png" alt="Zona Merah moment 3" class="gallery-thumb">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body p-2">
+                                            <img src="/img/gallery/file_0000000068ac7208a47bb716be081ded.png" alt="Zona Merah moment 4" class="gallery-thumb">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body p-2">
+                                            <img src="/img/gallery/image.png" alt="Zona Merah moment 5" class="gallery-thumb">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body p-2">
+                                            <img src="/img/gallery/image11231.png" alt="Zona Merah moment 6" class="gallery-thumb">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body p-2">
+                                            <img src="/img/gallery/imageasdasd.png" alt="Zona Merah moment 7" class="gallery-thumb">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body p-2">
+                                            <img src="/img/gallery/moments.png" alt="Zona Merah moment 8" class="gallery-thumb">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body p-2">
+                                            <img src="/img/gallery/moments1.png" alt="Zona Merah moment 9" class="gallery-thumb">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body p-2">
+                                            <img src="/img/gallery/mono.png" alt="Zona Merah moment 10" class="gallery-thumb">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body p-2">
+                                            <img src="/img/gallery/prizetime.png" alt="Zona Merah moment 11" class="gallery-thumb">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xl-3 mb-3">
+                                    <div class="card cms-card h-100">
+                                        <div class="card-body p-2">
+                                            <img src="/img/gallery/shadow.png" alt="Zona Merah moment 12" class="gallery-thumb">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <!-- pricing part end-->
+                </section>
 
-        <!--::footer_part start::-->
-        <footer class="footer_part" id="contact">
-            <div class="footer_top">
+                <section id="countdown" class="mb-4">
+                    <div class="card cms-card">
+                        <div class="card-header py-3 px-4">
+                            <h2 class="cms-section-title mb-0">Next Server Wipe Countdown</h2>
+                        </div>
+                        <div class="card-body p-4">
+                            <p class="cms-muted mb-3">
+                                Monthly wipe target (WIB):
+                                <strong data-countdown-target>Calculating next wipe...</strong>
+                            </p>
+                            <div class="wipe-countdown-grid">
+                                <div class="wipe-countdown-unit">
+                                    <div class="wipe-countdown-value" data-countdown-days>0</div>
+                                    <div class="wipe-countdown-label">Days</div>
+                                </div>
+                                <div class="wipe-countdown-unit">
+                                    <div class="wipe-countdown-value" data-countdown-hours>00</div>
+                                    <div class="wipe-countdown-label">Hours</div>
+                                </div>
+                                <div class="wipe-countdown-unit">
+                                    <div class="wipe-countdown-value" data-countdown-minutes>00</div>
+                                    <div class="wipe-countdown-label">Minutes</div>
+                                </div>
+                                <div class="wipe-countdown-unit">
+                                    <div class="wipe-countdown-value" data-countdown-seconds>00</div>
+                                    <div class="wipe-countdown-label">Seconds</div>
+                                </div>
+                            </div>
+                            <p class="cms-muted mb-0 mt-3">
+                                Final alert is posted in Discord 24 hours before wipe.
+                            </p>
+                        </div>
+                    </div>
+                </section>
 
-            </div>
-
-        </footer>
-        <!--::footer_part end::-->
+                <section id="contact" class="mb-3">
+                    <div class="card cms-card">
+                        <div class="card-body p-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+                            <div class="mb-3 mb-md-0">
+                                <h2 class="h5 mb-2">Zona Merah Project</h2>
+                                <p class="cms-muted mb-0">Need help or interested in partnering with the community team?</p>
+                            </div>
+                            <div class="d-flex flex-wrap">
+                                <a href="https://discord.gg/4CSsdS44Gq" target="_blank" rel="noopener noreferrer" class="btn btn-danger mr-2 mb-2 mb-md-0">Discord Support</a>
+                                <a href="#top" class="btn btn-outline-light">Back to Top</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
     </div>
+</div>

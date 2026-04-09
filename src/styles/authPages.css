@@ -1,0 +1,184 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 14px;
+  background:
+    radial-gradient(circle at top right, rgba(220, 53, 69, 0.2), transparent 42%),
+    radial-gradient(circle at bottom left, rgba(0, 123, 255, 0.18), transparent 40%),
+    #0d1117;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 520px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(18, 24, 32, 0.92);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+  padding: 22px;
+}
+
+.auth-card h1 {
+  margin: 0 0 8px;
+  color: #f6f8fb;
+  font-size: 1.8rem;
+}
+
+.auth-card p {
+  margin: 0 0 16px;
+  color: #adb8c4;
+  font-size: 0.95rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #d4dce4;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.auth-form input {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.24);
+  color: #f0f4f8;
+  padding: 10px 12px;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: rgba(220, 53, 69, 0.85);
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2);
+}
+
+.auth-btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 14px;
+  background: linear-gradient(135deg, #b91d3a, #dc3545);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-btn-secondary {
+  width: 100%;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, #4353d8, #5865f2);
+}
+
+.auth-btn:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.auth-error {
+  border: 1px solid rgba(220, 53, 69, 0.5);
+  border-radius: 10px;
+  background: rgba(220, 53, 69, 0.14);
+  color: #ffd8dd;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+}
+
+.auth-success {
+  border: 1px solid rgba(25, 135, 84, 0.5);
+  border-radius: 10px;
+  background: rgba(25, 135, 84, 0.16);
+  color: #d8f8e9;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+}
+
+.auth-links {
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.auth-link {
+  color: #dce4ed;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  color: #ffffff;
+}
+
+.auth-link-btn {
+  border: 0;
+  background: transparent;
+  color: #dce4ed;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.auth-link-btn:hover {
+  color: #ffffff;
+}
+
+.discord-profile {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.22);
+  margin-bottom: 14px;
+}
+
+.discord-profile-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.87rem;
+  color: #dce4ed;
+  margin-bottom: 6px;
+}
+
+.discord-profile-row span {
+  color: #9fb0bf;
+}
+
+.profile-card {
+  max-width: 760px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 8px 12px;
+  margin: 14px 0 8px;
+  font-size: 0.93rem;
+}
+
+.profile-key {
+  color: #96a6b5;
+}
+
+.profile-value {
+  color: #f0f4f8;
+}
+
+@media (max-width: 640px) {
+  .auth-card {
+    padding: 16px;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+}

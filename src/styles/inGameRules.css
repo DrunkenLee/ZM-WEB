@@ -1,0 +1,155 @@
+.igr-page {
+  min-height: 100vh;
+  padding: 28px 16px 40px;
+  background:
+    radial-gradient(circle at top right, rgba(220, 53, 69, 0.24), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(0, 123, 255, 0.2), transparent 45%),
+    #0d1117;
+  color: #e9ecef;
+}
+
+.igr-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+
+.igr-hero,
+.igr-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(15, 23, 34, 0.88);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+}
+
+.igr-hero {
+  padding: 22px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.igr-kicker {
+  margin: 0 0 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ff7f8b;
+}
+
+.igr-hero h1 {
+  margin: 0 0 10px;
+  font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+}
+
+.igr-subtitle {
+  margin: 0;
+  max-width: 740px;
+  color: #a9b4c0;
+}
+
+.igr-hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.igr-card {
+  padding: 18px;
+}
+
+.igr-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.12rem;
+}
+
+.igr-card h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.igr-muted {
+  margin: 0 0 10px;
+  color: #a7b3bf;
+}
+
+.igr-list {
+  margin: 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 8px;
+}
+
+.igr-ordered-list {
+  padding-left: 24px;
+}
+
+.igr-list li {
+  color: #dce4ed;
+  line-height: 1.5;
+}
+
+.igr-penalty-box {
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid rgba(220, 53, 69, 0.42);
+  border-radius: 12px;
+  background: rgba(220, 53, 69, 0.13);
+}
+
+.igr-tip {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(25, 135, 84, 0.35);
+  background: rgba(25, 135, 84, 0.16);
+  color: #d9f7e9;
+  font-weight: 600;
+}
+
+.igr-actions-row {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.igr-btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.igr-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.igr-btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, #b71f3d 0%, #dc3545 100%);
+}
+
+.igr-btn-secondary {
+  color: #dce2ea;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 767.98px) {
+  .igr-page {
+    padding: 18px 12px 26px;
+  }
+
+  .igr-hero,
+  .igr-card {
+    padding: 14px;
+  }
+}
